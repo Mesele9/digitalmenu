@@ -9,6 +9,8 @@
 
 .menu-item {
     display: none; /* Hide all items by default */
+    margin-bottom: 20px; /* Add spacing between menu items */
+    padding: 15px;
 }
 
 .card-img-top {
