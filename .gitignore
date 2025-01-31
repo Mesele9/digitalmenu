@@ -1,0 +1,11 @@
+# Python
+**/__pycache__/
+__pycache__/
+*$py.class
+*.py[cod]
+*.pyc
+
+/.env/
+/backup/
+/media/
+*/migrations/

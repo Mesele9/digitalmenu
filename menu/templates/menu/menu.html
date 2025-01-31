@@ -1,0 +1,54 @@
+{% extends 'menu/base.html' %}
+
+{% block content %}
+
+<h1 class="text-center my-4">Digital Menu</h1>
+<div class="row">
+    <!-- Search Bar (Always Visible) -->
+    <div class="col-md-12 mb-4">
+        <input type="text" id="search-input" class="form-control" placeholder="Search for items...">
+    </div>
+
+    <!-- Category Boxes -->
+    <div class="col-md-12 mb-4" id="category-section">
+        <h3>Categories</h3>
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-3 mb-3">
+                <div class="card category-card" data-category-id="{{ category.id }}" style="cursor: pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ category.name }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Back Button, Show All Button, and Menu Items -->
+    <div class="col-md-12" id="menu-section" style="display: none;">
+        <button class="btn btn-secondary mb-3" id="back-to-categories-btn" aria-label="Back to Categories">← Back to Categories</button>
+        <button class="btn btn-primary mb-3" id="show-all-btn" aria-label="Show All">Show All</button>
+        <div class="row" id="menu-items-container">
+            {% for item in menu_items %}
+            <div class="col-md-4 mb-4 menu-item" data-category-id="{{ item.category.id }}">
+                <div class="card">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">${{ item.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- No items message -->
+        <div id="no-items-message" class="text-center mt-4" style="display: none;">
+            <p>No items found.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+.category-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item {
+    display: none; /* Hide all items by default */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+#search-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#menu-section {
+    display: none; /* Hide the menu section by default */
+}
+
+#back-to-categories-btn {
+    margin-bottom: 10px;
+}
+
+
