@@ -1,0 +1,14 @@
+{% extends 'menu/base.html' %}
+{% block content %}
+<div class="container text-center my-5">
+    <h1>Welcome to Our Digital Menu</h1>
+    <p>Please choose a Menu Type:</p>
+    <div class="btn-group">
+        {% for main_cat in main_categories %}
+            <a href="?main_category={{ main_cat.id }}" class="btn btn-outline-primary m-2">
+                {{ main_cat.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

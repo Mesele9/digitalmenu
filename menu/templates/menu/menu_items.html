@@ -1,0 +1,38 @@
+{% extends 'menu/base.html' %}
+{% block content %}
+<div class="container my-5">
+    <!-- Navigation Buttons -->
+    <div class="mb-4">
+        <a href="?main_category={{ selected_main_category }}" class="btn btn-secondary">← Back to Categories</a>
+        {% for main_cat in main_categories %}
+            <a href="?main_category={{ main_cat.id }}" class="btn btn-outline-primary m-1">
+                {{ main_cat.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <h2 class="text-center mb-4">Menu Items</h2>
+    <div class="row" id="menu-items-container">
+        {% for item in menu_items %}
+            <div class="col-md-4 mb-4 menu-item" data-search="{{ item.name }} {{ item.description }}">
+                <a href="{% url 'menu_item_detail' item.id %}" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        {% if item.image %}
+                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <p class="card-text">{{ item.description|truncatechars:100 }}</p>
+                            <p class="card-text text-primary">${{ item.price }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No menu items found in this category.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
