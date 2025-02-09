@@ -7,6 +7,31 @@ body {
     padding: 0;
 }
 
+/* Header with Logo */
+.title-bar {
+    background-color: #a7c957; /* Sage Green */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title-bar img {
+    height: 100px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between logo and text */
+    width: auto;
+}
+
+.title-bar h1 {
+    margin: 0;
+    font-size: 32px; /* Larger font size */
+    font-weight: bold;
+    color: white; /* White text for contrast */
+}
+
+
 /* Main Category Buttons */
 .btn-group .btn {
     margin: 5px;
@@ -53,6 +78,19 @@ body {
 .menu-item .card-text {
     font-size: 14px;
     color: #666;
+}
+
+.card-img-top {
+    border-radius: 12px;
+    height: 400px;
+    object-fit: cover;
+}
+.text-warning {
+    color: #ffc107 !important;
+}
+.badge {
+    font-size: 0.9em;
+    margin: 2px;
 }
 
 /* Search Bar */

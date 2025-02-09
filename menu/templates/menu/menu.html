@@ -2,6 +2,20 @@
 
 {% block content %}
 <div class="container">
+        <!-- Welcome Message (only shows when no subcategory/search) -->
+        {% if not selected_subcategory and not search_query %}
+        <div class="row mb-5 text-center">
+            <div class="col-md-12">
+                <h3 class="display-5 mb-3">Welcome to Our World of Flavors</h3>
+                <p class="text-muted">
+                    Explore authentic local specialties and international favorites, paired with carefully 
+                    crafted beverages from around the globe. Please select the button below to view our 
+                    restaurant or bar menu and begin your epicurean adventure with us. 
+                </p>
+            </div>
+        </div>
+        {% endif %}
+    
     <!-- Main Category Buttons -->
     <div class="row mb-4">
         <div class="col-md-12 text-center">

@@ -41,26 +41,6 @@
         <div class="col-md-12">
             <h3 class="mb-4">Ratings & Reviews</h3>
 
-            <!-- Rating Form -->
-            <div class="card mb-5">
-                <div class="card-body">
-                    <h5 class="card-title">Leave a Review</h5>
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            {{ form.guest_name }}
-                        </div>
-                        <div class="mb-3">
-                            {{ form.stars }}
-                        </div>
-                        <div class="mb-3">
-                            {{ form.comment }}
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit Review</button>
-                    </form>
-                </div>
-            </div>
-
             <!-- Existing Reviews -->
             {% for rating in ratings %}
             <div class="card mb-3">
@@ -81,21 +61,27 @@
             <p class="text-muted">No reviews yet. Be the first to review!</p>
             {% endfor %}
         </div>
+        
+            <!-- Rating Form -->
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h5 class="card-title">Leave a Review</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.guest_name }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.stars }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.comment }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
     </div>
 </div>
 
-<style>
-.card-img-top {
-    border-radius: 12px;
-    height: 400px;
-    object-fit: cover;
-}
-.text-warning {
-    color: #ffc107 !important;
-}
-.badge {
-    font-size: 0.9em;
-    margin: 2px;
-}
-</style>
 {% endblock %}
