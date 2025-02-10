@@ -44,7 +44,7 @@ def menu_view(request):
             menu_items = MenuItem.objects.filter(
                 categories__id__in=subcategory_ids,
                 is_active=True
-            )
+            ).distinct()
             
             # Apply subcategory filter if selected
             if selected_subcategory:

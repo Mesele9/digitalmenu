@@ -13,7 +13,7 @@
         <div class="col-md-6">
             <div class="card">
                 {% if item.image %}
-                <img src="{{ item.image.url }}" class="card-img-top img-fluid rounded" alt="{{ item.name }}">
+                <img src="{{ item.image.url }}" class="card-img-detail-top img-fluid rounded" alt="{{ item.name }}">
                 {% endif %}
             </div>
         </div>
@@ -24,6 +24,22 @@
                 <div class="card-body">
                     <h1 class="card-title">{{ item.name }}</h1>
                     <p class="lead">${{ item.price }}</p>
+                    
+                    {% if item.tags.exists %}
+                    <div class="mb-3">
+                        <h5>Tags:</h5>
+                        {% for tag in item.tags.all %}
+                        <span class="badge rounded-pill mb-1" 
+                            style="background-color: {{ tag.color }}; color: white; font-size: 0.9em;">
+                            {% if tag.icon %}
+                            <i class="{{ tag.icon }} me-1"></i>
+                            {% endif %}
+                            {{ tag.name }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
                     <p class="card-text">{{ item.description }}</p>
                     <div class="mt-4">
                         <h5>Categories:</h5>
